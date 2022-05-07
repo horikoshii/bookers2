@@ -16,8 +16,13 @@
       <%= link_to "Bookers", top_path %>
     </h1>
     <% if user_signed_in? %>
+    
       <li>
-        <%= link_to " Home ", users_edit_path %>
+        <%= link_to " Home ", top_path %>
+      </li>
+      
+      <li>
+        <%= link_to " User ", users_edit_path %>
       </li>
 
       <li>
