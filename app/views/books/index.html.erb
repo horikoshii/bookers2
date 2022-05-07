@@ -1,0 +1,16 @@
+<h1>投稿一覧</h1>
+<% @books.each do |book| %>
+
+  <p>タイトル</p>
+  <span>
+    <%=link_to books.title, books_path(books.id) %>
+  </span>
+  
+  <p>画像</p>
+  <% if books.image.attached? %>
+    <%= image_tag books.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
+  
+<% end %>

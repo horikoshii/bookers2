@@ -1,0 +1,14 @@
+<h2>タイトル</h2>
+<p><%= @books.title %></p>
+
+<h2>本文</h2>
+<p><%= @books.body %></p>
+
+<h2>画像</h2>
+<% if @books.image.attached? %>
+  <%= image_tag @books.image, size: "300x300" %>
+<% else %>
+  <%= image_tag 'no_image', size: "300x300" %>
+<% end %>
+
+<%= link_to "編集", edit_book_path(@books.id) %>
