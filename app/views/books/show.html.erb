@@ -1,16 +1,48 @@
-<h2>タイトル</h2>
-<p><%= @books.title %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4" style="background-color: orange;">
+      <h2>User info</h2>
+       <table class="table table-striped">
+        <thead>
+         <tr>
+          <th>name</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>introduction</td>
+         </tr>
+        </tbody>
+       </table>
+    </div>
 
-<h2>本文</h2>
-<p><%= @books.body %></p>
+    <div class="col-lg-8">
+      <h2>Book detail</h2>
+      <table class="table table-striped">
+        <thead>
+         <tr>
+           <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+          <th></th>
+          <th></th>
+         </tr>
+        </thead>
+        <tbody>
+        <tr>
+         <td><%= image_tag @books.user.get_profile_image(100,100) %></td>
+         <td><%= link_to @books.title,book_path(@books.id) %></td>
+         <td><%= @books.body %></td>
+         <td>
+             <% if @book.user == current_user %>
+              <%= link_to "削除", books_path(@book), method: :delete %>
+             <% end %>
+         </td>
+        </tr>
+        </tbody>
+       </table>
+    </div>
+  </div>
+</div>
 
-<p>投稿ユーザー画像：<%= image_tag @.user.get_profile_image(100,100) %></p>
-
-<h2>画像</h2>
-<% if @books.image.attached? %>
-  <%= image_tag @books.image, size: "300x300" %>
-<% else %>
-  <%= image_tag 'no_image', size: "300x300" %>
-<% end %>
-
-<%= link_to "編集", edit_book_path(@books.id) %>
+<%= render 'books', book: @book %>
