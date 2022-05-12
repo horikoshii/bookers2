@@ -1,22 +1,4 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-4" style="background-color: orange;">
-      <h2>User info</h2>
-       <table class="table table-striped">
-        <thead>
-         <tr>
-          <th>name</th>
-         </tr>
-        </thead>
-        <tbody>
-         <tr>
-          <td>introduction</td>
-         </tr>
-        </tbody>
-       </table>
-    </div>
-
-    <div class="col-lg-8">
+<%= render 'user', book: @book %>
       <h2>Book detail</h2>
       <table class="table table-striped">
         <thead>
@@ -30,12 +12,15 @@
         </thead>
         <tbody>
         <tr>
-         <td><%= image_tag @books.user.get_profile_image(100,100) %></td>
+         <td>
+          <%= image_tag @books.user.get_profile_image(100,100) %>
+         </td>
          <td><%= link_to @books.title,book_path(@books.id) %></td>
          <td><%= @books.body %></td>
+         <td><%= link_to "編集", edit_book_path(@books.id) %></td>
          <td>
-             <% if @book.user == current_user %>
-              <%= link_to "削除", books_path(@book), method: :delete %>
+             <% if @books.user.id == current_user.id %>
+              <%= link_to 'delete', book_path(@books.id), method: :delete %>
              <% end %>
          </td>
         </tr>
