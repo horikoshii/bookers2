@@ -1,5 +1,4 @@
 <%= render 'users/user', users: @user %>
-
       <h2>Book detail</h2>
       <table class="table table-striped">
         <thead>
@@ -15,6 +14,7 @@
         <tr>
          <td>
           <%= image_tag @books.user.get_profile_image(100,100) %>
+          <%= link_to @books.user.name,users_path(@books.id) %>
          </td>
          <td><%= link_to @books.title,book_path(@books.id) %></td>
          <td><%= @books.body %></td>
