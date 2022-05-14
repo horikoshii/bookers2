@@ -4,13 +4,16 @@
       <h2>User info</h2>
        <table class="table table-striped">
         <thead>
+         <th><%= image_tag users.get_profile_image(100,100) %></th>
          <tr>
           <th>name</th>
+          <td><%= users.name %></td>
          </tr>
         </thead>
         <tbody>
          <tr>
           <td>introduction</td>
+          <td></td>
          </tr>
         </tbody>
        </table>
