@@ -1,15 +1,15 @@
 <h2 class="mt-3">New book</h2>
-<form action="/books" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="1QIrN_lOE8jFM7iWVaXzQ5y6vqz5-9HskGkESafuaS7HfoIpeW7y7Ffiv54-wGEDd1SzvlYsBRk0AP3Br_RBPw" autocomplete="off">
+ <%= form_with model: book do |f| %>
   <div class="form-group">
-    <label for="book_title">Title</label>
-    <input class="form-control book_title" type="text" name="book[title]" id="book_title">
+    <label for="book_title">Title</label><br>
+    <%= f.text_area :title %>
   </div>
   <div class="form-group">
-    <label for="book_opinion">Opinion</label>
-    <textarea class="form-control book_body" name="book[body]" id="book_body"></textarea>
+    <label for="book_opinion">Opinion</label><br>
+    <%= f.text_area :body %>
   </div>
   <div class="form-group">
-    <input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book">
+    <%= f.submit 'Create Book' %>
   </div>
-</form>
 </div>
+ <% end %>

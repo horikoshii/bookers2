@@ -18,6 +18,10 @@
          </tr>
         </tbody>
        </table>
-  <a class="btn btn-outline-secondary btn-block edit_user_10612" href="/users/10612/edit">
-    <svg class="svg-inline--fa fa-user-cog fa-w-20" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-cog" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" ></path></svg><i class="fas fa-user-cog"></i></a>
- 
+       <div class="row">
+        <div class="btn btn-outline-secondary btn-block">
+        <%= link_to edit_user_path(@user.id) do %>
+        <i class="fas fa-user-cog"></i>
+        <% end %>
+        </div>
+       </div>
