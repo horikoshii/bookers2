@@ -12,14 +12,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users = User.all
-    @books = @user.books
+    @books = Book.all
     @book = Book.new
   end
 
   def edit
     @user = User.find(params[:id])
-    if @books.user.id == current_user.id
-    render "show"
+    if @user == current_user
+    render :show
     else
     redirect_to user_path
     end
