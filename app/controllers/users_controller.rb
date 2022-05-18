@@ -14,12 +14,13 @@ class UsersController < ApplicationController
     @users = User.all
     @books = Book.all
     @book = Book.new
+    flash[:notice] = "Signed in successfully."
   end
 
   def edit
     @user = User.find(params[:id])
     if @user == current_user
-    render :show
+    render :edit
     else
     redirect_to user_path
     end

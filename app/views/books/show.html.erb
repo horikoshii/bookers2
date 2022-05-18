@@ -1,6 +1,13 @@
+<% if flash[:notice] %>
+  <p id="notice">
+   <%= flash[:notice] %>
+  </p>
+ <% end %>
+
 <%= render 'users/user', users: @user %>
 
 <%= render 'books', book: @book %>
+
 
  <div class="col-md-8 offset-md-1">
   <h2>Book detail</h2>
