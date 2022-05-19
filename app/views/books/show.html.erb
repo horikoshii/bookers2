@@ -1,7 +1,6 @@
 <% if flash[:notice] %>
-  <p id="notice">
+  <%= notice %>
    <%= flash[:notice] %>
-  </p>
  <% end %>
 
 <%= render 'users/user', users: @user %>
@@ -25,7 +24,7 @@
      <tr>
       <td>
        <%= image_tag @books.user.get_profile_image(100,100) %><br>
-       <%= link_to @books.user.name,user_path(@user.id) %>
+       <%= link_to @books.user.name,users_path(@user.id) %>
       </td>
       <td><%= link_to @books.title,book_path(@books.id) %></td>
       <td><%= @books.body %></td>
