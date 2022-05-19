@@ -15,7 +15,6 @@ class UsersController < ApplicationController
     @users = User.all
     @books = Book.all
     @book = Book.new
-    flash[:notice] = "Signed in successfully."
   end
 
   def edit

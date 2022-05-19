@@ -1,6 +1,7 @@
 <% if flash[:notice] %>
-  <%= notice %>
+  <p id="notice">
    <%= flash[:notice] %>
+  </p>
  <% end %>
 
 <%= render 'users/user', users: @user %>
