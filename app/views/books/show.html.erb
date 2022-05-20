@@ -31,7 +31,7 @@
       <td><%= @books.body %></td>
       <td>
       <% if @books.user.id == current_user.id %>
-      <%= link_to "edit", edit_book_path(@books.id) %>
+      <%= link_to "edit",edit_book_path(@books.id) %>
       <% end %>
       </td>
       <td>
