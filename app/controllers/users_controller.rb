@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-  before_action :correct_user, only: [:edit, :update]
-
-  def top
-  end
-
+  
   def index
     @users = User.all
     @user = current_user
@@ -19,10 +15,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if @user == current_user
-    render :edit
+    if @user.id == current_user.id
+      render :edit
     else
-    redirect_to user_path(user_params)
+      redirect_to user_path(current_user.id)
     end
   end
 
